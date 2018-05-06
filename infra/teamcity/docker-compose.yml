@@ -2,14 +2,14 @@ version: '3.1'
 
 services:
     teamcity:
-        image: jetbrains/teamcity-server:2017.1.2
+        image: jetbrains/teamcity-server
         volumes:
             - teamcity-server-datadir:/data/teamcity_server/datadir
             - teamcity-server-logs:/opt/teamcity/logs
         ports:
             - 8111:8111
     teamcity-agent:
-        image: aspnetcore/teamcity-agent-with-compose:2017.1.2
+        image: aspnetcore/teamcity-agent-with-compose
         build: ./agent
         environment:
             SERVER_URL: http://teamcity:8111
