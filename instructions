@@ -1,0 +1,10 @@
+teamcity
+
+http://localhost:8111
+to startup the team agent
+
+cd C:\Pluralsight\DockerDeployPipleline\aspnetcore-generator-api\infra\teamcity
+$Env:COMPOSE_CONVERT_WINDOWS_PATHS=1
+docker-compose up
+
+wait several minutes....

@@ -3,14 +3,17 @@ version: '3.1'
 services:
   generator:
     image: my-registry:55000/gen:ci-${GENERATOR_BUILD_NUMBER-10}
+    # Containers talk to each other privately so we don't relaly need this
     #ports:
     #  - "8080:80"
   mail:
     image: mailhog/mailhog
     #ports:
     #  - "8025:8025"
+  
   integration:
     image: my-registry:55000/gen:integration-${BUILD_NUMBER-10}
     build: .
     environment:
-      - TEAMCITY_PROJECT_NAME
+      # the integration tests in team city
+      TEAMCITY_PROJECT_NAME: ${TEAMCITY_PROJECT_NAME}

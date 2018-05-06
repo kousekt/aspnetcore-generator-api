@@ -10,6 +10,7 @@ services:
             - 8111:8111
     teamcity-agent:
         image: aspnetcore/teamcity-agent-with-compose
+        # Installs the Dockerfile image in the agent.  Intalls docker compsoe
         build: ./agent
         environment:
             SERVER_URL: http://teamcity:8111
